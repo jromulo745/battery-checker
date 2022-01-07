@@ -38,15 +38,16 @@ while True:
 	# time.sleep(100)
 	# num = int(battery_string[66:68])
 
-	if charging_string == "Now drawing from 'Battery Power'": # run warnings only when non-charging mode
+	if charging_string[0:32] == "Now drawing from 'Battery Power'": # run warnings only when non-charging mode
+		print('here')
 		if (num <= 20): # if battery percentage is or below 20%, notify with sound and put to sleep
-			os.system('pmset sleepnow')
 			while True:
-				time.sleep(1)
 				os.system('afplay /System/Library/Sounds/Sosumi.aiff')
+				time.sleep(1)
+				# os.system('pmset sleepnow')
 		elif (num >= 80): # if battery percentage is or above 80%, notify with sound and put to sleep
-			os.system('pmset sleepnow')
 			while True:
-				time.sleep(1)
 				os.system('afplay /System/Library/Sounds/Sosumi.aiff')
+				time.sleep(1)
+				# os.system('pmset sleepnow')
 
