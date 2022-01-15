@@ -2,6 +2,8 @@
 
 import os, time
 
+os.system("osascript -e 'tell application \"System Events\" to keystroke \"m\" using {command down}'")
+
 #-------------------------------------------------------------------------------------------------------------
 
 def battery_function():	
