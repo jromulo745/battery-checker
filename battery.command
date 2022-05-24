@@ -1,8 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os, time
-
-os.system("osascript -e 'tell application \"System Events\" to keystroke \"m\" using {command down}'")
 
 #-------------------------------------------------------------------------------------------------------------
 
@@ -33,7 +31,7 @@ def charging_function():
 	charging_file = open('charging_status.txt', 'r') # traverse file for reading ('r' mode)
 	charging_string = '' # empty string to append letters from file since contents are un-indexable
 	for a in charging_file:
-		 for b in a:
+		for b in a:
 			charging_string += b
 	charging_file.close()	
 	print('dude: ' + charging_string[0:32])
@@ -43,10 +41,6 @@ def charging_function():
 
 while True:
 	time.sleep(5) # wait every five seconds to check battery status
-
-	# battery_string = battery_function()
-	# charging_string = charging_function()[0:32]	
-	# num = battery_helper()
 
 	if charging_function()[0:32] == "Now drawing from 'Battery Power'": # run warnings only when non-charging mode
 		print('here')
@@ -64,4 +58,3 @@ while True:
 				if charging_function()[0:32] == "Now drawing from 'Battery Power'":
 					break	
 				time.sleep(1)
-
