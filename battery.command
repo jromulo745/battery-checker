@@ -51,7 +51,7 @@ while True:
 					break
 				time.sleep(1)
 	else:
-		if (battery_helper() >= 70): # if battery percentage is or above 80%, notify with sound and put to sleep
+		if (battery_helper() >= 80): # if battery percentage is or above 80%, notify with sound and put to sleep
 			while True:
 				os.system('afplay /System/Library/Sounds/Sosumi.aiff')
 				print('LAAAA: ' + charging_function()[0:32] + 'STOP')
