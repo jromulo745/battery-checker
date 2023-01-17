@@ -41,10 +41,10 @@ def charging_function():
 
 while True:
 	time.sleep(5) # wait every five seconds to check battery status
-
 	if charging_function()[0:32] == "Now drawing from 'Battery Power'": # run warnings only when non-charging mode
 		print('here')
 		if (battery_helper() <= 20): # if battery percentage is or below 20%, notify with sound and put to sleep
+			os.system('open "/Users/macuser/Documents/github-repositories/self-made-tools/battery-checker/Check Charging Status.pdf"')
 			while True:
 				os.system('afplay /System/Library/Sounds/Sosumi.aiff')
 				if charging_function()[0:32] != "Now drawing from 'Battery Power'":
@@ -52,6 +52,7 @@ while True:
 				time.sleep(1)
 	else:
 		if (battery_helper() >= 80): # if battery percentage is or above 80%, notify with sound and put to sleep
+			os.system('open "/Users/macuser/Documents/github-repositories/self-made-tools/battery-checker/Check Charging Status.pdf"')
 			while True:
 				os.system('afplay /System/Library/Sounds/Sosumi.aiff')
 				print('LAAAA: ' + charging_function()[0:32] + 'STOP')
