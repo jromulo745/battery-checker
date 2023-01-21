@@ -16,14 +16,28 @@ def battery_function():
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+def return_num(temp_value, x_value, string):
+	temp = temp_value # assuming percent is double-digit
+	num = string[temp:x_value]
+	print(num) # output for visual check	
+	return int(num)
+
 def battery_helper():
 	battery_string = battery_function()
 	for x in range(len(battery_string)): # traverse through string until '%' is found
 		if battery_string[x] == '%':	
-			temp = x-2 # assuming percent is double-digit
-			num = int(battery_string[temp:x])
-			print(num) # output for visual check	
-			return num
+			if battery_string[x-3:x] != '100':
+				# temp = x-2 # assuming percent is double-digit
+				# num = int(battery_string[temp:x])
+				# print(num) # output for visual check	
+				return return_num(x-2, x, battery_string)
+			else:
+				# temp = x-3
+				# num = int(battery_string[temp:x])
+				# print(num) # output for visual check	
+				return return_num(x-3, x, battery_string)
+				# return int(battery_string[x-3:x])
+				
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 def charging_function():	
