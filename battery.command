@@ -2,6 +2,8 @@
 
 import os, time
 
+os.system('osascript -e \'tell application "Terminal" to set miniaturized of window 1 to true\'')
+
 #-------------------------------------------------------------------------------------------------------------
 
 def battery_function():	
